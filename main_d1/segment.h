@@ -69,7 +69,7 @@ typedef struct uvl {
 } uvl;
 
 typedef struct side {
-	int8_t		type;									// replaces num_faces and tri_edge, 1 = quad, 2 = 0:2 triangulation, 3 = 1:3 triangulation
+	int8_t		type;									// replaces num_faces and tri_edge, 1 = mQuad, 2 = 0:2 triangulation, 3 = 1:3 triangulation
 	uint8_t		pad;									//keep us longword alligned
 	short		wall_num;
 	short		tmap_num;

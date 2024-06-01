@@ -155,7 +155,7 @@ int				ai_evaded = 0;
 //	19	vulcan
 //	20	toad
 //	21	4-claw
-//	22	quad-laser
+//	22	mQuad-laser
 // 23 super boss
 
 // int8_t	Super_boss_gate_list[] = {0, 1, 2, 9, 11, 16, 18, 19, 21, 22, 0, 9, 9, 16, 16, 18, 19, 19, 22, 22};

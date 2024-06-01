@@ -84,7 +84,7 @@ COPYRIGHT 1993-1998 PARALLAX SOFTWARE CORPORATION.  ALL RIGHTS RESERVED.
 #define OF_DESTROYED			4		//this has been killed, and is showing the dead version
 #define OF_SILENT				8		//this makes no sound when it hits a wall.  Added by MK for weapons, if you extend it to other types, do it completely!
 #define OF_ATTACHED			16		//this object is a fireball attached to another object
-#define OF_HARMLESS			32		//this object does no damage.  Added to make quad lasers do 1.5 damage as normal lasers.
+#define OF_HARMLESS			32		//this object does no damage.  Added to make mQuad lasers do 1.5 damage as normal lasers.
 
 //Different Weapon ID types...
 #define WEAPON_ID_LASER			0

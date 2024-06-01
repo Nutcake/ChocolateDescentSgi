@@ -24,8 +24,8 @@ extern uint16_t asin_table[];
 extern uint16_t acos_table[];
 extern fix isqrt_guess_table[];
 
-//negate a quad
-void fixquadnegate(quad* q)
+//negate a mQuad
+void fixquadnegate(mQuad* q)
 {
 	q->low = 0 - q->low;
 	q->high = 0 - q->high - (q->low != 0);
@@ -40,7 +40,7 @@ void fixmulaccum(int64_t*q, fix a, fix b)
 	*q += sum;
 }
 
-//extract a fix from a quad product
+//extract a fix from a mQuad product
 
 //parabolicus's version
 fix fixquadadjust(int64_t q)
@@ -57,7 +57,7 @@ fix fixquadadjust(int64_t q)
 	return v;
 }
 
-//divide a quad by a fix, returning a fix
+//divide a mQuad by a fix, returning a fix
 uint32_t ufixdivquadlong(uint32_t nl, uint32_t nh, uint32_t d)
 {
 	uint64_t num = ((( uint64_t)nh << 32) + (uint64_t)nl);
@@ -100,7 +100,7 @@ fixang fix_atan2(fix cos, fix sin)
 
 }
 
-//computes the square root of a quad, returning a long 
+//computes the square root of a mQuad, returning a long
 uint32_t quad_sqrt(int64_t q)
 {
 	//int iterLimit = 0;
@@ -137,7 +137,7 @@ uint32_t quad_sqrt(int64_t q)
 
 	r = guess_table[index & 0xff] << cnt;
 
-	//quad loop usually executed 4 times
+	//mQuad loop usually executed 4 times
 
 	r = ((int64_t)fixdivquadlong(q, r) + r) / 2;
 	r = ((int64_t)fixdivquadlong(q, r) + r) / 2;

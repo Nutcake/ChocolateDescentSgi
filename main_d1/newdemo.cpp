@@ -1798,7 +1798,7 @@ int newdemo_read_frame_information()
 				if ((oflags & PLAYER_FLAGS_INVULNERABLE) && !(Players[Player_num].flags & PLAYER_FLAGS_INVULNERABLE))
 					Players[Player_num].invulnerable_time = 0;
 			}
-			update_laser_weapon_info();		// in case of quad laser change
+			update_laser_weapon_info();		// in case of mQuad laser change
 			break;
 		}
 

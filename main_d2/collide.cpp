@@ -352,7 +352,7 @@ void collide_player_and_wall(object* playerobj, fix hitspeed, short hitseg, shor
 
 	//	** Damage from hitting wall **
 	//	If the player has less than 10% shields, don't take damage from bump
-	// Note: Does quad damage if hit a force field - JL
+	// Note: Does mQuad damage if hit a force field - JL
 	damage = (hitspeed / DAMAGE_SCALE) * (ForceFieldHit * 8 + 1);
 
 	tmap_num2 = Segments[hitseg].sides[hitwall].tmap_num2;
@@ -744,7 +744,7 @@ void collide_weapon_and_wall(object* weapon, fix hitspeed, short hitseg, short h
 #ifndef NDEBUG
 	if (keyd_pressed[KEY_LAPOSTRO])
 		if (weapon->ctype.laser_info.parent_num == Players[Player_num].objnum) {
-			//	MK: Real pain when you need to know a seg:side and you've got quad lasers.
+			//	MK: Real pain when you need to know a seg:side and you've got mQuad lasers.
 			mprintf((0, "Your laser hit at segment = %i, side = %i, level = %i\n", hitseg, hitwall, Current_level_num));
 			HUD_init_message("Hit at segment = %i, side = %i, level = %i", hitseg, hitwall, Current_level_num);
 			if (weapon->id < 4)
@@ -1936,7 +1936,7 @@ void drop_player_eggs(object* playerobj)
 		else if (Players[pnum].laser_level >= 1)
 			call_object_create_egg(playerobj, Players[pnum].laser_level, OBJ_POWERUP, POW_LASER);	// Note: laser_level = 0 for laser level 1.
 
-		//	Drop quad laser if appropos
+		//	Drop mQuad laser if appropos
 		if (Players[pnum].flags & PLAYER_FLAGS_QUAD_LASERS)
 			call_object_create_egg(playerobj, 1, OBJ_POWERUP, POW_QUAD_FIRE);
 
@@ -2164,7 +2164,7 @@ void apply_damage_to_player(object* playerobj, object* killer, fix damage)
 		// -- removed, 09/06/95, MK -- 					destroy_secondary_weapon(Secondary_weapon);
 		// -- removed, 09/06/95, MK -- 				} else if (Primary_weapon == 0) {
 		// -- removed, 09/06/95, MK -- 					if (Players[Player_num].flags & PLAYER_FLAGS_QUAD_LASERS)
-		// -- removed, 09/06/95, MK -- 						destroy_primary_weapon(MAX_PRIMARY_WEAPONS);	//	This means to destroy quad laser.
+		// -- removed, 09/06/95, MK -- 						destroy_primary_weapon(MAX_PRIMARY_WEAPONS);	//	This means to destroy mQuad laser.
 		// -- removed, 09/06/95, MK -- 					else if (Players[Player_num].laser_level > 0)
 		// -- removed, 09/06/95, MK -- 						destroy_primary_weapon(Primary_weapon);
 		// -- removed, 09/06/95, MK -- 				} else

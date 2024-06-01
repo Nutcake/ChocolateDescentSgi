@@ -1596,7 +1596,7 @@ int attempt_to_steal_item_3(object *objp, int player_num)
 	if (maybe_steal_flag_item(player_num, PLAYER_FLAGS_INVULNERABLE))
 		return 1;
 
-	//	If primary weapon = laser, first try to rip away those nasty quad lasers!
+	//	If primary weapon = laser, first try to rip away those nasty mQuad lasers!
 	if (Primary_weapon == 0)
 		if (maybe_steal_flag_item(player_num, PLAYER_FLAGS_QUAD_LASERS))
 			return 1;

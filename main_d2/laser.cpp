@@ -1890,7 +1890,7 @@ int do_laser_firing(int objnum, int weapon_num, int level, int flags, int nfires
 
 			if (flags & LASER_QUAD) 
 			{
-				//	hideous system to make quad laser 1.5x powerful as normal laser, make every other quad laser bolt harmless
+				//	hideous system to make mQuad laser 1.5x powerful as normal laser, make every other mQuad laser bolt harmless
 				Laser_player_fire( objp, weapon_num, 2, 0, 0);
 				Laser_player_fire( objp, weapon_num, 3, 0, 0);
 			}
@@ -1971,7 +1971,7 @@ int do_laser_firing(int objnum, int weapon_num, int level, int flags, int nfires
 
 			if (flags & LASER_QUAD)
 			{
-				//	hideous system to make quad laser 1.5x powerful as normal laser, make every other quad laser bolt harmless
+				//	hideous system to make mQuad laser 1.5x powerful as normal laser, make every other mQuad laser bolt harmless
 				Laser_player_fire( objp, super_level, 2, 0, 0);
 				Laser_player_fire( objp, super_level, 3, 0, 0);
 			}

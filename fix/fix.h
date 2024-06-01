@@ -39,7 +39,7 @@ typedef short fixang;		//angles
 #define F0_5 	f0_5
 #define F0_1 	f0_1
 
-typedef struct quad 
+typedef struct mQuad
 {
 	uint32_t low;
 	int32_t high;
@@ -97,26 +97,26 @@ constexpr fix fixmuldiv(fix a, fix b, fix c)
 	return (fix)((int64_t)a * (int64_t)b / c);
 }
 
-//multiply two fixes, and add 64-bit product to a quad
+//multiply two fixes, and add 64-bit product to a mQuad
 void fixmulaccum(int64_t*q, fix a, fix b);
 
-//extract a fix from a quad product
+//extract a fix from a mQuad product
 fix fixquadadjust(int64_t q);
 
-//divide a quad by a long
+//divide a mQuad by a long
 constexpr int32_t fixdivquadlong(int64_t n, uint32_t d)
 {
 	if (d == 0) return 1;
 	return (int32_t)(n / d);
 }
 
-//negate a quad
-void fixquadnegate(quad* q);
+//negate a mQuad
+void fixquadnegate(mQuad* q);
 
 //computes the square root of a long, returning a short
 uint16_t long_sqrt(int32_t a);
 
-//computes the square root of a quad, returning a long
+//computes the square root of a mQuad, returning a long
 uint32_t quad_sqrt(int64_t q);
 
 //computes the square root of a fix, returning a fix

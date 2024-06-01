@@ -73,7 +73,7 @@ uint8_t object_rendered[MAX_OBJECTS];
 #define DEFAULT_RENDER_DEPTH 16
 int Render_depth = DEFAULT_RENDER_DEPTH;			//how many segments deep to render
 
-int	Detriangulation_on = 1;					// 1 = allow rendering of triangulated side as a quad, 0 = don't allow
+int	Detriangulation_on = 1;					// 1 = allow rendering of triangulated side as a mQuad, 0 = don't allow
 
 #ifdef EDITOR
 int	Render_only_bottom = 0;
@@ -404,7 +404,7 @@ void render_side(segment* segp, int sidenum)
 	normals[0] = segp->sides[sidenum].normals[0];
 	normals[1] = segp->sides[sidenum].normals[1];
 
-	//	Regardless of whether this side is comprised of a single quad, or two triangles, we need to know one normal, so
+	//	Regardless of whether this side is comprised of a single mQuad, or two triangles, we need to know one normal, so
 	//	deal with it, get the dot product.
 	if (sidep->type == SIDE_IS_TRI_13)
 		vm_vec_normalized_dir(&tvec, &Viewer_eye, &Vertices[segp->verts[Side_to_verts[sidenum][1]]]);
@@ -430,7 +430,7 @@ void render_side(segment* segp, int sidenum)
 		//	Although this side has been triangulated, because it is not planar, see if it is acceptable
 		//	to render it as a single quadrilateral.  This is a function of how far away the viewer is, how non-planar
 		//	the face is, how normal to the surfaces the view is.
-		//	Now, if both dot products are close to 1.0, then render two triangles as a single quad.
+		//	Now, if both dot products are close to 1.0, then render two triangles as a single mQuad.
 		v_dot_n1 = vm_vec_dot(&tvec, &normals[1]);
 
 		if (v_dot_n0 < v_dot_n1) {

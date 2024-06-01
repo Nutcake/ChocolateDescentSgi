@@ -1103,7 +1103,7 @@ void drop_player_eggs(object* player)
 		if (Players[pnum].laser_level >= 1)
 			call_object_create_egg(player, (Players[pnum].laser_level), OBJ_POWERUP, POW_LASER);
 
-		//	Drop quad laser if appropos
+		//	Drop mQuad laser if appropos
 		if (Players[pnum].flags & PLAYER_FLAGS_QUAD_LASERS)
 			call_object_create_egg(player, 1, OBJ_POWERUP, POW_QUAD_FIRE);
 
